@@ -1,0 +1,220 @@
+body{
+    margin:0;
+    height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+        to bottom,
+        #020617,
+        #001845
+    );
+
+    overflow:hidden;
+}
+#particles{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:2;
+}
+
+.particula{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    opacity:1;
+    box-shadow:0 0 6px #fff, 0 0 10px #ffd700;
+    animation:subir linear forwards;
+}
+
+@keyframes subir{
+    from{
+        transform:translateY(0);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100vh);
+        opacity:0;
+    }
+}
+@keyframes floatUp{
+    from{
+        transform:translateY(0);
+        opacity:0;
+    }
+    to{
+        transform:translateY(-100vh);
+        opacity:0;
+    }
+}
+/* TEXTO */
+
+#mensaje{
+    font-family:'Dancing Script', cursive;
+    font-size:5rem;
+
+    color:#FFD700;
+
+    opacity:0;
+
+    margin-bottom:40px;
+
+    text-shadow:
+        0 0 10px #FFD700,
+        0 0 20px #FFD700,
+        0 0 40px #FFD700;
+}
+
+.mostrar{
+    animation:aparecerTexto 2s forwards;
+}
+
+@keyframes aparecerTexto{
+    from{
+        opacity:0;
+        transform:translateY(-30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* GIRASOL */
+
+.contenedor{
+    position:relative;
+}
+
+.girasol{
+    position:relative;
+    width:300px;
+    height:400px;
+}
+
+/* TALLO */
+
+.tallo{
+    position:absolute;
+    z-index:-1;
+
+    width:14px;
+    height:0;
+
+    background:#22c55e;
+
+    left:143px;
+    top:180px;
+}
+
+.bloom .tallo{
+    animation:crecerTallo 1.5s forwards;
+}
+
+@keyframes crecerTallo{
+    to{
+        height:200px;
+    }
+}
+
+/* CENTRO */
+
+.centro{
+    position:absolute;
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    background:#5a3200;
+
+    left:105px;
+    top:90px;
+
+    z-index:2;
+
+    transform:scale(0);
+}
+
+.bloom .centro{
+    animation:aparecerCentro 1s forwards;
+}
+
+@keyframes aparecerCentro{
+    to{
+        transform:scale(1);
+    }
+}
+
+/* PÉTALOS */
+
+.petalo{
+    position:absolute;
+
+    width:55px;
+    height:120px;
+
+    background:#FFD700;
+
+    border-radius:50%;
+
+    left:122px;
+    top:35px;
+
+    opacity:0;
+
+    transform-origin:center 100px;
+}
+
+.p1{ transform:rotate(0deg); }
+
+.p2{ transform:rotate(30deg); }
+
+.p3{ transform:rotate(60deg); }
+
+.p4{ transform:rotate(90deg); }
+
+.p5{ transform:rotate(120deg); }
+
+.p6{ transform:rotate(150deg); }
+
+.p7{ transform:rotate(180deg); }
+
+.p8{ transform:rotate(210deg); }
+
+.p9{ transform:rotate(240deg); }
+
+.p10{ transform:rotate(270deg); }
+
+.p11{ transform:rotate(300deg); }
+
+.p12{ transform:rotate(330deg); }
+
+.bloom .petalo{
+    animation:abrirPetalo 1.5s forwards;
+}
+
+@keyframes abrirPetalo{
+
+    from{
+        opacity:0;
+        scale:0;
+    }
+
+    to{
+        opacity:1;
+        scale:1;
+    }
+}
+
